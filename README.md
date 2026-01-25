@@ -10,7 +10,7 @@ This library provides unofficial Go clients for [OpenAI API](https://platform.op
 * DALL·E 2, DALL·E 3, GPT Image 1
 * Whisper
 
-## Installation
+## Installation 2
 
 ```
 go get github.com/jason919/go-openai
