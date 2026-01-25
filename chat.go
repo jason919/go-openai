@@ -276,6 +276,7 @@ type ChatCompletionRequest struct {
 	N                   int                           `json:"n,omitempty"`
 	Stream              bool                          `json:"stream,omitempty"`
 	Enable_thinking     bool						  `json:"enable_thinking,omitempty"`
+	Thinking_budget     int                           `json:"thinking_budget,omitempty"`
 	Stop                []string                      `json:"stop,omitempty"`
 	PresencePenalty     float32                       `json:"presence_penalty,omitempty"`
 	ResponseFormat      *ChatCompletionResponseFormat `json:"response_format,omitempty"`
