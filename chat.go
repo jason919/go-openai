@@ -258,6 +258,9 @@ type ChatCompletionRequestExtensions struct {
 	// choices are required.
 	GuidedChoice []string `json:"guided_choice,omitempty"`
 }
+type Thinking_deepseek_v4 struct {
+	Enabled string `json:"type"`
+}
 
 // ChatCompletionRequest represents a request structure for chat completion API.
 type ChatCompletionRequest struct {
@@ -270,17 +273,21 @@ type ChatCompletionRequest struct {
 	MaxTokens int `json:"max_tokens,omitempty"`
 	// MaxCompletionTokens An upper bound for the number of tokens that can be generated for a completion,
 	// including visible output tokens and reasoning tokens https://platform.openai.com/docs/guides/reasoning
-	MaxCompletionTokens int                           `json:"max_completion_tokens,omitempty"`
-	Temperature         float32                       `json:"temperature,omitempty"`
-	TopP                float32                       `json:"top_p,omitempty"`
-	N                   int                           `json:"n,omitempty"`
-	Stream              bool                          `json:"stream,omitempty"`
-	Enable_thinking     bool						  `json:"enable_thinking,omitempty"`
-	Stop                []string                      `json:"stop,omitempty"`
-	PresencePenalty     float32                       `json:"presence_penalty,omitempty"`
-	ResponseFormat      *ChatCompletionResponseFormat `json:"response_format,omitempty"`
-	Seed                *int                          `json:"seed,omitempty"`
-	FrequencyPenalty    float32                       `json:"frequency_penalty,omitempty"`
+	MaxCompletionTokens int     `json:"max_completion_tokens,omitempty"`
+	Temperature         float32 `json:"temperature,omitempty"`
+	TopP                float32 `json:"top_p,omitempty"`
+	N                   int     `json:"n,omitempty"`
+	Stream              bool    `json:"stream,omitempty"`
+	Enable_thinking     bool    `json:"enable_thinking,omitempty"`
+
+	Thinking_deepseek_v4 Thinking_deepseek_v4 `json:"thinking,omitempty"`
+	Reasoning_effort     string               `json:"reasoning_effort,omitempty"`
+
+	Stop             []string                      `json:"stop,omitempty"`
+	PresencePenalty  float32                       `json:"presence_penalty,omitempty"`
+	ResponseFormat   *ChatCompletionResponseFormat `json:"response_format,omitempty"`
+	Seed             *int                          `json:"seed,omitempty"`
+	FrequencyPenalty float32                       `json:"frequency_penalty,omitempty"`
 	// LogitBias is must be a token id string (specified by their token ID in the tokenizer), not a word string.
 	// incorrect: `"logit_bias":{"You": 6}`, correct: `"logit_bias":{"1639": 6}`
 	// refs: https://platform.openai.com/docs/api-reference/chat/create#chat/create-logit_bias
